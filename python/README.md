@@ -1,21 +1,21 @@
 # SentencePiece Python Wrapper
 
-Python wrapper for SentencePiece. This API will offer the encoding, decoding and training of Sentencepiece.
+SentencePiece的Python装饰器。 该API将提供Sentencepiece的编码，解码和训练。
 
 ## Build and Install SentencePiece
-For Linux (x64/i686), macOS, and Windows(win32/x64) environment, you can simply use pip command to install SentencePiece python module.
+For Linux (x64/i686), macOS, and Windows(win32/x64) environment,您只需使用pip命令安装SentencePiece python模块即可。 
 
 ```
 % pip install sentencepiece
 ```
 
-To build and install the Python wrapper from source, please install [SentencePiece C++](https://github.com/google/sentencepiece#c-from-source) and try the following commands:
+从源代码构建和安装Python装饰器 , please install [SentencePiece C++](https://github.com/google/sentencepiece#c-from-source) and try the following commands:
 ```
 % python setup.py build
 % sudo python setup.py install
 ```
 
-If you don’t have write permission to the global site-packages directory or don’t want to install into it, please try:
+如果您没有对global site-packages包目录的写许可权或不想安装到该目录中，请尝试：
 ```
 % python setup.py install --user
 ```
@@ -75,7 +75,7 @@ See [this google colab page](https://github.com/google/sentencepiece/blob/master
 ```
 
 ### Model Training
-Training is performed by passing parameters of [spm_train](https://github.com/google/sentencepiece#train-sentencepiece-model) to  SentencePieceTrainer.train() function.
+通过将[spm_train](https://github.com/google/sentencepiece#train-sentencepiece-model)的参数传递给SentencePieceTrainer.train()函数来进行训练。
 
 ```
 >>> import sentencepiece as spm
@@ -93,8 +93,9 @@ trainer_interface.cc(619) LOG(INFO) Saving vocabs: m.vocab
 ```
 
 ### Training without local filesystem
-Sentencepiece trainer can receive any iterable object to feed training sentences. You can also pass a file object (instance with write() method) to emit the output model to any devices. These features are useful to run sentencepiece on environment that have limited access to the local file system (e.g., Google colab.)
-
+Sentencepiece训练器可以接收任何可迭代的对象来输入训练语句。 
+您还可以传递文件对象(带有write()方法的实例)以将输出模型发送给任何设备。 
+这些对于在对局部文件系统(例如Google colab)具有有限访问权限的环境中运行句子非常有用。 
 ```
 import urllib.request
 import io
@@ -181,9 +182,9 @@ trainer_interface.cc(293) LOG(INFO) Saving vocabs: m.vocab
 ```
 
 ## Python2/3 String/Unicode compatibility
-Sentencepiece python wrapper accepts both Unicode string and legacy byte string.
-The output string type is determined by the input string type.
-The output type of IdToPiece/DecodeIds methods is *str*, but note that it is a legacy byte string in Python2 and Unicode string in Python3 respectively.
+Sentencepiece python装饰器接受Unicode字符串和旧字节字符串。
+输出字符串类型由输入字符串类型确定。
+IdToPiece/DecodeIds方法的输出类型为*str*，但请注意，它分别是Python2中的旧字节字符串和Python3中的Unicode字符串。 
 
 * Python2:
 ```
